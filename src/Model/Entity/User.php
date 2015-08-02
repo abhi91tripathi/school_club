@@ -28,4 +28,7 @@ class User extends Entity
         'schools' => true,
         'child_users' => true,
     ];
+    protected function _setPassword($password){
+        return (new DefaultPasswordHasher)->hash($password);
+    }
 }
