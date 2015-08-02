@@ -1,6 +1,8 @@
 <?php
 namespace App\Model\Entity;
 
+use Cake\Auth\DefaultPasswordHasher;
+
 use Cake\ORM\Entity;
 
 /**
@@ -28,7 +30,8 @@ class User extends Entity
         'schools' => true,
         'child_users' => true,
     ];
-    /*
+    
+     /*
      * purpose:password encryption method
      * autor:Ajay Pratap singh
      * created:2/08/15
@@ -37,3 +40,4 @@ class User extends Entity
         return (new DefaultPasswordHasher)->hash($password);
     }
 }
+
