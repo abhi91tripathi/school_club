@@ -14,8 +14,8 @@
  */
 namespace App\Controller;
 
-use Cake\Controller\Controller;dfdfdf
-
+use Cake\Controller\Controller;
+use Cake\Event\Event;
 /**
  * Application Controller
  *
@@ -34,9 +34,23 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function initialize()
-    {
+    public function initialize(){
         parent::initialize();
         $this->loadComponent('Flash');
+//        $this->loadComponent('Auth');
+        $this->loadComponent('Auth', [
+             'authenticate' => [
+             'Form' => [
+                'fields' => ['username' => 'email']
+            ]
+            ] 
+        ]);
+    }
+
+    public function beforeFilter(Event $event){
+        //$this->Auth->allow(['index', 'view', 'display']);
+        if($this->request->params['prefix']=='admin'){
+            $this->layout = "admin";
+        }
     }
 }
