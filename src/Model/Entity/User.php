@@ -28,6 +28,11 @@ class User extends Entity
         'schools' => true,
         'child_users' => true,
     ];
+    /*
+     * purpose:password encryption method
+     * autor:Ajay Pratap singh
+     * created:2/08/15
+     * */
     protected function _setPassword($password){
         return (new DefaultPasswordHasher)->hash($password);
     }
