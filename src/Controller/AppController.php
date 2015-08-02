@@ -37,8 +37,7 @@ class AppController extends Controller
     public function initialize(){
         parent::initialize();
         $this->loadComponent('Flash');
-//        $this->loadComponent('Auth');
-        $this->loadComponent('Auth', [
+		$this->loadComponent('Auth', [
              'authenticate' => [
              'Form' => [
                 'fields' => ['username' => 'email']

@@ -10,9 +10,10 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \Cake\ORM\Association\BelongsTo $ParentUsers
+ * @property \Cake\ORM\Association\BelongsTo $Owners
+ * @property \Cake\ORM\Association\BelongsTo $Groups
  * @property \Cake\ORM\Association\HasMany $Schools
- * @property \Cake\ORM\Association\HasMany $ChildUsers
+ * @property \Cake\ORM\Association\HasMany $Students
  */
 class UsersTable extends Table
 {
@@ -29,16 +30,19 @@ class UsersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
-        $this->belongsTo('ParentUsers', [
-            'className' => 'Users',
-            'foreignKey' => 'parent_id'
+        $this->belongsTo('Owners', [
+            'foreignKey' => 'owner_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Groups', [
+            'foreignKey' => 'group_id',
+            'joinType' => 'INNER'
         ]);
         $this->hasMany('Schools', [
             'foreignKey' => 'user_id'
         ]);
-        $this->hasMany('ChildUsers', [
-            'className' => 'Users',
-            'foreignKey' => 'parent_id'
+        $this->hasMany('Students', [
+            'foreignKey' => 'user_id'
         ]);
     }
 
@@ -58,10 +62,6 @@ class UsersTable extends Table
             ->add('email', 'valid', ['rule' => 'email'])
             ->requirePresence('email', 'create')
             ->notEmpty('email');
-            
-        $validator
-            ->requirePresence('username', 'create')
-            ->notEmpty('username');
             
         $validator
             ->requirePresence('password', 'create')
@@ -84,6 +84,10 @@ class UsersTable extends Table
             ->add('status', 'valid', ['rule' => 'numeric'])
             ->requirePresence('status', 'create')
             ->notEmpty('status');
+            
+        $validator
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
 
         return $validator;
     }
@@ -99,7 +103,8 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
-//        $rules->add($rules->existsIn(['parent_id'], 'ParentUsers'));
+        $rules->add($rules->existsIn(['owner_id'], 'Owners'));
+        $rules->add($rules->existsIn(['group_id'], 'Groups'));
         return $rules;
     }
 }
