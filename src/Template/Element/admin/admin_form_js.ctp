@@ -1,0 +1,33 @@
+<?=
+$this->Html->script([
+    '../admin/assets/js/jquery-1.8.3.min',
+    '../admin/assets/ckeditor/ckeditor',
+    '../admin/assets/breakpoints/breakpoints',
+    '../admin/assets/bootstrap/js/bootstrap.min',
+    '../admin/assets/bootstrap-fileupload/bootstrap-fileupload',
+    '../admin/assets/js/jquery.blockui',
+    '../admin/assets/js/jquery.cookie',
+    '../admin/assets/chosen-bootstrap/chosen/chosen.jquery.min',
+    '../admin/assets/uniform/jquery.uniform.min',
+    '../admin/assets/bootstrap-wysihtml5/wysihtml5-0.3.0',
+    '../admin/assets/bootstrap-wysihtml5/bootstrap-wysihtml5',
+    '../admin/assets/jquery-tags-input/jquery.tagsinput.min',
+    '../admin/assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons',
+    '../admin/assets/bootstrap-datepicker/js/bootstrap-datepicker',
+    '../admin/assets/clockface/js/clockface',
+    '../admin/assets/bootstrap-daterangepicker/date',
+    '../admin/assets/bootstrap-daterangepicker/daterangepicker',
+    '../admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker',
+    '../admin/assets/bootstrap-timepicker/js/bootstrap-timepicker',
+    '../admin/assets/jquery-validation/dist/jquery.validate.min',
+    '../admin/assets/jquery-validation/dist/additional-methods.min',
+    '../admin/assets/js/app'
+]);
+?>
+<script>
+    jQuery(document).ready(function () {
+        // initiate layout and plugins
+        App.setPage("form_validation");
+        App.init();
+    });
+</script>

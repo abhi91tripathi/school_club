@@ -76,6 +76,10 @@ class UsersController extends AppController
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
+            $this->request->data['owner_id'] = $this->Auth->user('id');
+            $this->request->data['group_id'] = '2';
+            $this->request->data['status'] = '1';
+            $this->request->data['password'] = date('Ym').'@'.  rand(5, 5);
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
@@ -84,8 +88,17 @@ class UsersController extends AppController
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
+        $groupTable = \Cake\ORM\TableRegistry::get('Groups');
+        $groupOption = $groupTable->find('list')
+                ->select([
+                    'id','name'
+                ])->where([
+                'NOT' => array(
+                    'id' => 1
+                )
+        ])->toArray();
+        $this->set(compact('user', 'groupOption'));
+        $this->set('_serialize', ['user','groupOption']);
     }
 
     /**

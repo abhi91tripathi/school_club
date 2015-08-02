@@ -30,10 +30,10 @@ class UsersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
-        $this->belongsTo('Owners', [
-            'foreignKey' => 'owner_id',
-            'joinType' => 'INNER'
-        ]);
+//        $this->belongsTo('Owners', [
+//            'foreignKey' => 'owner_id',
+//            'joinType' => 'INNER'
+//        ]);
         $this->belongsTo('Groups', [
             'foreignKey' => 'group_id',
             'joinType' => 'INNER'
@@ -103,7 +103,7 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['owner_id'], 'Owners'));
+//        $rules->add($rules->existsIn(['owner_id'], 'Owners'));
         $rules->add($rules->existsIn(['group_id'], 'Groups'));
         return $rules;
     }

@@ -4909,3 +4909,8 @@ Bootstrap Tree CSS changes(new in v1.1.2)
 .tree a.tree-toggle-icon-only.closed {
   background-position: 2px 3px;
 }
+
+.error-message{
+    color: red;
+    font-size: 13px;
+}
