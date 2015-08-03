@@ -33,9 +33,9 @@ class User extends Entity
     
      /*
      * purpose:password encryption method
-     * autor:Ajay Pratap singh
+     * author:Ajay Pratap singh
      * created:2/08/15
-     * */
+     **/
     protected function _setPassword($password){
         return (new DefaultPasswordHasher)->hash($password);
     }
