@@ -1,0 +1,28 @@
+2015-08-02 17:16:46 Notice: Notice (8): Undefined index: prefix in [C:\xampp\htdocs\school_club\src\Controller\AppController.php, line 51]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+App\Controller\AppController::beforeFilter() - APP/Controller\AppController.php, line 51
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 385
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 355
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 473
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 109
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-02 18:43:58 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\school_club\src\Template\Admin\Users\add.ctp, line 4]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Admin\Users\add.ctp, line 4
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
