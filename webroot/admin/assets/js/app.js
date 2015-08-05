@@ -3046,10 +3046,10 @@ var App = function () {
                 .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
             },
 
-            submitHandler: function (form) {
-                success1.show();
-                error1.hide();
-            }
+//            submitHandler: function (form) {
+//                success1.show();
+//                error1.hide();
+//            }
         });
 
         //Sample 2
@@ -3141,10 +3141,10 @@ var App = function () {
                 }
             },
 
-            submitHandler: function (form) {
-                success2.show();
-                error2.hide();
-            }
+//            submitHandler: function (form) {
+//                success2.show();
+//                error2.hide();
+//            }
 
         });
 

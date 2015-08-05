@@ -163,8 +163,6 @@
                         <!-- END VALIDATION STATES-->
                     </div>
                 </div>
-
-
                 <!-- END PAGE CONTENT-->         
             </div>
             <!-- END PAGE CONTAINER-->
