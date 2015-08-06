@@ -39,7 +39,12 @@ class UsersController extends AppController
 		
     }
 
-    
+    public $paginate = [
+        'order' => [
+            'Users.id' => 'desc'
+        ]
+        ,'limit' => 3
+    ];
     /**
      * Index method
      *
@@ -47,7 +52,11 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->set('users', $this->paginate($this->Users));
+        $query = $this->Users->find()->contain([
+                'Groups'=>function($q){return $q->select(['id', 'name']);}
+            ]);
+//            debug($this->paginate($query));exit;
+        $this->set('users', $this->paginate($query));
         $this->set('_serialize', ['users']);
     }
 
@@ -110,6 +119,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -122,8 +132,17 @@ class UsersController extends AppController
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
+        $groupTable = \Cake\ORM\TableRegistry::get('Groups');
+        $groupOption = $groupTable->find('list')
+                ->select([
+                    'id','name'
+                ])->where([
+                'NOT' => array(
+                    'id' => 1
+                )
+        ])->toArray();
+        $this->set(compact('user', 'groupOption'));
+        $this->set('_serialize', ['user','groupOption']);
     }
 
     /**
