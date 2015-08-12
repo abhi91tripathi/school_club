@@ -40,6 +40,7 @@ use Cake\Routing\Router;
  *
  */
 Router::defaultRouteClass('Route');
+Router::extensions(['json', 'xml']);
 
 Router::scope('/', function ($routes) {
     /**
@@ -75,6 +76,11 @@ Router::scope('/', function ($routes) {
 Router::prefix('admin', function ($routes) {
     $routes->fallbacks();
 });
+
+Router::prefix('school', function ($routes) {
+    $routes->fallbacks();
+});
+
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.

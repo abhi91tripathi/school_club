@@ -23,7 +23,7 @@ class UsersController extends AppController
      * created on:4/08/15
      * */
     public function login(){
-		$this->layout = "school_login";
+        $this->layout = "school_login";
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -52,6 +52,7 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->layout='ajax';
         $this->paginate = [
             'contain' => ['Groups']
         ];
@@ -82,11 +83,10 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->layout='ajax';
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $this->request->data['owner_id'] = $this->Auth->user('id');
-            $this->request->data['group_id'] = '2';
-            $this->request->data['status'] = '1';
             $this->request->data['password'] = date('Ym').'@'.  rand(5, 5);
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
@@ -116,23 +116,16 @@ class UsersController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit($id=null)
     {
+        
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
-            }
-        }
-        $groups = $this->Users->Groups->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'groups'));
+        $this->set(compact('user'));
         $this->set('_serialize', ['user']);
+        
+        
     }
 
     /**

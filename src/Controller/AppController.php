@@ -44,6 +44,7 @@ class AppController extends Controller
             ]
             ] 
         ]);
+               $this->loadComponent('RequestHandler');
     }
 
     public function beforeFilter(Event $event){
@@ -51,5 +52,10 @@ class AppController extends Controller
         if($this->request->params['prefix']=='admin'){
             $this->layout = "admin";
         }
+        
+         if($this->request->params['prefix']=='school'){
+            $this->layout = "school";
+        }
+        
     }
 }

@@ -1,13 +1,5 @@
-<?= $this->element('admin/admin_form_css'); ?>
-<div class="fixed-top">
-    <!-- BEGIN HEADER -->
-    <?= $this->element('admin/admin_header'); ?>
-    <!-- END HEADER -->
-    <!-- BEGIN CONTAINER -->
-    <div class="page-container row-fluid">
-        <?= $this->element('admin/admin_sidebar'); ?>
-        <!-- BEGIN PAGE -->  
-        <div class="page-content">
+<!-- BEGIN PAGE -->  
+        <div >
             <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
             <div id="portlet-config" class="modal hide">
                 <div class="modal-header">
@@ -74,7 +66,7 @@
                             <div class="portlet-body form">
                                 <!-- BEGIN FORM-->
                                 <h3>Advance validation of custom radio buttons, checkboxes and chosen dropdowns</h3>
-                                <?= $this->Form->create($user,['class'=>"form-horizontal",'id'=>'form_sample_2']) ?>
+                                <form name="myForm" id="add_fr"  class="form-horizontal"  novalidate ng-submit="myForm.$valid && login.submit()" >
                                     <div class="alert alert-error hide">
                                         <button class="close" data-dismiss="alert"></button>
                                         You have some form errors. Please check below.
@@ -92,7 +84,8 @@
                                                     'label' => false,
                                                     'div' => false,
                                                     'options' => $groupOption,
-                                                    'default'=>'1'
+                                                    'default'=>'1',
+                                                  'ng-model'=>'item.group_id'
                                                 ]);?>
                                         </div>
                                     </div>
@@ -103,7 +96,9 @@
                                                 'div' => FALSE,
                                                 'label' => FALSE,
                                                 'class' => 'span6 m-wrap',
-                                                'data-required' => 1
+                                                'data-required' => 1,
+                                                  'ng-model'=>'item.first_name',
+                                                'required'=>'required'
                                             ]);?>
                                         </div>
                                     </div>
@@ -114,7 +109,8 @@
                                                 'div' => FALSE,
                                                 'label' => FALSE,
                                                 'class' => 'span6 m-wrap',
-                                                'data-required' => 1
+                                                'data-required' => 1,
+                                                  'ng-model'=>'item.last_name'
                                             ]);?>
                                         </div>
                                     </div>
@@ -125,7 +121,8 @@
                                                 'div' => FALSE,
                                                 'label' => FALSE,
                                                 'class' => 'span6 m-wrap',
-                                                'data-required' => 1
+                                                'data-required' => 1,
+                                                  'ng-model'=>'item.email'
                                             ]);?>
                                         </div>
                                     </div>
@@ -136,9 +133,11 @@
                                                 'div' => FALSE,
                                                 'label' => FALSE,
                                                 'class' => 'span6 m-wrap',
-                                                'data-required' => 1
+                                                'data-required' => 1,
+                                                  'ng-model'=>'item.username'
                                             ]);?>
-                                        </div>
+                                            <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+                                            <span ng-show="myForm.username.$error.required">Username is required.</span>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Mobile No<span class="required">*</span></label>
@@ -148,12 +147,16 @@
                                                 'label' => FALSE,
                                                 'class' => 'span6 m-wrap',
                                                 'data-required' => 1,
-                                                'id' => 'mobile_no'
+                                                'id' => 'mobile_no',
+                                                  'ng-model'=>'item.mobile_no'
                                             ]);?>
+                                            <span style="color:red" ng-show="myForm.mobile_no.$dirty && myForm.mobile_no.$invalid">
+                                            <span ng-show="myForm.mobile_no.$error.required">Username is required.</span>
                                         </div>
                                     </div>
                                     <div class="form-actions">
-                                        <button type="submit" class="btn green">Validate</button>
+                                        <button type="submit"  ng-disabled="myForm.username.$dirty && myForm.username.$invalid ||
+  myForm.mobile_no.$dirty && myForm.mobile_no.$invalid" class="btn green">Validate</button>
                                         <button type="reset" class="btn">Cancel</button>
                                     </div>
                                 </form>
@@ -169,9 +172,5 @@
             </div>
             <!-- END PAGE CONTAINER-->
         </div>
-        <!-- END PAGE -->  
-    </div>
-    <!-- END CONTAINER -->
-    <?= $this->element('admin/admin_footer'); ?>
-</div>
-<?= $this->element('admin/admin_form_js'); ?>
+
+       

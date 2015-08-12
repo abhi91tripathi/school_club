@@ -19,7 +19,7 @@
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
         <li class="start active ">
-            <a href="index.html">
+            <a href="#/list">
                 <i class="icon-home"></i> 
                 <span class="title">Dashboard</span>
                 <span class="selected"></span>
@@ -27,9 +27,9 @@
         </li>
        
         <li class="">
-            <a href="charts.html">
+            <a href="#/add">
                 <i class="icon-bar-chart"></i> 
-                <span class="title">Visual Charts</span>
+                <span class="title">Add</span>
             </a>
         </li>
       
