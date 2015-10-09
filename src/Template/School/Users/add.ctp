@@ -66,7 +66,7 @@
                             <div class="portlet-body form">
                                 <!-- BEGIN FORM-->
                                 <h3>Advance validation of custom radio buttons, checkboxes and chosen dropdowns</h3>
-                                <form name="myForm" id="add_fr"  class="form-horizontal"  novalidate ng-submit="myForm.$valid && login.submit()" >
+                                <form name="myForm" id="add_fr"  class="form-horizontal"  novalidate ng-submit="save()" >
                                     <div class="alert alert-error hide">
                                         <button class="close" data-dismiss="alert"></button>
                                         You have some form errors. Please check below.
@@ -136,8 +136,7 @@
                                                 'data-required' => 1,
                                                   'ng-model'=>'item.username'
                                             ]);?>
-                                            <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
-                                            <span ng-show="myForm.username.$error.required">Username is required.</span>
+                                           
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Mobile No<span class="required">*</span></label>
@@ -148,15 +147,13 @@
                                                 'class' => 'span6 m-wrap',
                                                 'data-required' => 1,
                                                 'id' => 'mobile_no',
-                                                  'ng-model'=>'item.mobile_no'
+                                                  'ng-model'=>'item.mobile_no',
+                                                'ng-keyup'=>"save()"
                                             ]);?>
-                                            <span style="color:red" ng-show="myForm.mobile_no.$dirty && myForm.mobile_no.$invalid">
-                                            <span ng-show="myForm.mobile_no.$error.required">Username is required.</span>
                                         </div>
                                     </div>
                                     <div class="form-actions">
-                                        <button type="submit"  ng-disabled="myForm.username.$dirty && myForm.username.$invalid ||
-  myForm.mobile_no.$dirty && myForm.mobile_no.$invalid" class="btn green">Validate</button>
+                                        <button type="submit" ng-click="save()" class="btn green">Validate</button>
                                         <button type="reset" class="btn">Cancel</button>
                                     </div>
                                 </form>

@@ -23164,3 +23164,167 @@ Stack Trace:
 2015-08-09 15:33:39 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2015-08-09 15:33:49 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2015-08-09 15:33:52 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2015-08-12 12:16:55 Error: [Cake\Routing\Exception\MissingControllerException] Controller class users could not be found.
+Exception Attributes: array (
+  'class' => 'users',
+  'plugin' => NULL,
+  'prefix' => 'admin',
+  '_ext' => NULL,
+)
+Request URL: /school_club/admin/users
+Stack Trace:
+#0 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-12 12:17:06 Error: [Cake\Controller\Exception\MissingActionException] Action UsersController::assets() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'assets',
+  'prefix' => 'admin',
+  'plugin' => NULL,
+)
+Request URL: /school_club/admin/Users/assets/img/logo-big.png
+Stack Trace:
+#0 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\Admin\UsersController))
+#2 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-12 12:17:11 Error: [PDOException] SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Request URL: /school_club/admin/Users/login
+Stack Trace:
+#0 /var/www/school_club/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'root', 'admin', Array)
+#1 /var/www/school_club/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(89): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /var/www/school_club/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(46): Cake\Database\Driver\Mysql->connect()
+#3 /var/www/school_club/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(62): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /var/www/school_club/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /var/www/school_club/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(44): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /var/www/school_club/vendor/cakephp/cakephp/src/Database/Connection.php(319): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /var/www/school_club/vendor/cakephp/cakephp/src/ORM/Table.php(425): Cake\Database\Connection->schemaCollection()
+#8 /var/www/school_club/vendor/cakephp/cakephp/src/ORM/Query.php(141): Cake\ORM\Table->schema()
+#9 /var/www/school_club/vendor/cakephp/cakephp/src/ORM/Query.php(123): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /var/www/school_club/vendor/cakephp/cakephp/src/ORM/Table.php(1217): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /var/www/school_club/vendor/cakephp/cakephp/src/ORM/Table.php(921): Cake\ORM\Table->query()
+#12 /var/www/school_club/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(141): Cake\ORM\Table->find('all')
+#13 /var/www/school_club/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('abhishek.tripat...')
+#14 /var/www/school_club/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('abhishek.tripat...', '123456')
+#15 /var/www/school_club/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(752): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /var/www/school_club/src/Controller/Admin/UsersController.php(24): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\Admin\UsersController->login()
+#18 /var/www/school_club/vendor/cakephp/cakephp/src/Controller/Controller.php(411): call_user_func_array(Array, Array)
+#19 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\Admin\UsersController))
+#21 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+
+2015-08-12 12:18:18 Error: [Cake\Controller\Exception\MissingActionException] Action UsersController::assets() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'assets',
+  'prefix' => 'admin',
+  'plugin' => NULL,
+)
+Request URL: /school_club/admin/Users/assets/img/logo-big.png
+Stack Trace:
+#0 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\Admin\UsersController))
+#2 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-12 12:18:22 Error: [Cake\Controller\Exception\MissingActionException] Action UsersController::assets() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'assets',
+  'prefix' => 'admin',
+  'plugin' => NULL,
+)
+Request URL: /school_club/admin/Users/assets/img/logo-big.png
+Stack Trace:
+#0 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 /var/www/school_club/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\Admin\UsersController))
+#2 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-12 12:18:40 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Assets could not be found.
+Exception Attributes: array (
+  'class' => 'Assets',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /school_club/assets/img/logo.png
+Stack Trace:
+#0 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-12 12:18:40 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Assets could not be found.
+Exception Attributes: array (
+  'class' => 'Assets',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /school_club/assets/img/avatar1_small.jpg
+Stack Trace:
+#0 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-12 12:18:40 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Assets could not be found.
+Exception Attributes: array (
+  'class' => 'Assets',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /school_club/assets/img/menu-toggler.png
+Stack Trace:
+#0 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-12 12:18:41 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Assets could not be found.
+Exception Attributes: array (
+  'class' => 'Assets',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /school_club/assets/img/avatar3.jpg
+Stack Trace:
+#0 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-12 12:18:41 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Assets could not be found.
+Exception Attributes: array (
+  'class' => 'Assets',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /school_club/assets/img/avatar2.jpg
+Stack Trace:
+#0 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-12 12:18:42 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Assets could not be found.
+Exception Attributes: array (
+  'class' => 'Assets',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /school_club/assets/img/avatar1.jpg
+Stack Trace:
+#0 /var/www/school_club/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+

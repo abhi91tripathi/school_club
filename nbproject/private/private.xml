@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/var/www/school_club/src/Template/School/Users/add.ctp</file>
-            <file>file:/var/www/school_club/src/Template/Element/school/school_form_css.ctp</file>
-            <file>file:/var/www/school_club/src/Controller/Admin/UsersController.php</file>
-            <file>file:/var/www/school_club/src/Template/Layout/school.ctp</file>
-            <file>file:/var/www/school_club/src/Controller/AppController.php</file>
-            <file>file:/var/www/school_club/src/Template/School/Users/dashboard.ctp</file>
-            <file>file:/var/www/school_club/config/routes.php</file>
-            <file>file:/var/www/school_club/webroot/js/app.js</file>
-            <file>file:/var/www/school_club/src/Controller/School/UsersController.php</file>
-            <file>file:/var/www/school_club/src/Model/Entity/User.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

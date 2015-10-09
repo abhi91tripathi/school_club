@@ -33,14 +33,12 @@ app.controller('cfgController',function($scope){
 app.controller('UsereditCtrl',['$scope','$routeParams','$http',function($scope,$routeParams,$http){
     	App.setPage("form_validation");
         App.init();
+        $scope.item=[];
         $http.get('edit/'+$routeParams.id+'.json').success (function(data){
-               $scope.item=data.user;
+               $scope.item;
+             
             }); 
-         $scope.login = {
-        submit: function() {
-
-            Console.info($scope.login.username + ' ' + $scope.login.password);
-        }
-    } 
-    
+        $scope.save=function(){
+             console.log( $scope.item);
+        }    
 }]);

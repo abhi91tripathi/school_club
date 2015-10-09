@@ -220,8 +220,8 @@ return [
              */
             //'port' => 'nonstandard_port_number',
             'username' => 'root',
-            'password' => 'admin',
-            'database' => 'school_club',
+            'password' => 'technologies',
+            'database' => 'club',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
